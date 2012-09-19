@@ -7,6 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 -- Third party
+require("debian.menu")
 require("vicious")
 require("volume")
 require("netwidget")
@@ -128,12 +129,13 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", awesome.quit },
    { "suspend", function () awful.util.spawn("sudo pm-suspend") end},
-   { "power off", "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop",  '/usr/share/icons/gnome/16x16/actions/gtk-quit.png'},
+   { "power off", "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop"},
 }
 
 mymainmenu = awful.menu({
     items = {
         {"awesome", myawesomemenu, beautiful.awesome_icon},
+        {"Debian", debian.menu.Debian_menu.Debian},
         {"&Nautilus", "nautilus --no-desktop", '/usr/share/icons/hicolor/32x32/apps/nautilus.png'},
         {"&Thunar", "thunar"},
         {"屏幕键盘", "matchbox-keyboard", '/usr/share/pixmaps/matchbox-keyboard.png'},
@@ -197,7 +199,6 @@ for s = 1, screen.count() do
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
-
 -- }}}
 
 -- {{{ Mouse bindings
