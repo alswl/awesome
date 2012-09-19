@@ -1,13 +1,1 @@
-#Vim view
-.vim/view/*
-.vim/.netrwhist
-.vim/bundle/*
-
-.vimperator/info/*
-.xmonad/*
-restart_session.vim
-.personal-command.sh
-.vim/tags
-.vim/xml-plugin.txt
-.vim/so/
 *.swp
