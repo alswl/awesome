@@ -7,7 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 -- Third party
-require("debian.menu")
+--require("debian.menu")
 require("vicious")
 require("volume")
 require("netwidget")
@@ -135,7 +135,7 @@ myawesomemenu = {
 mymainmenu = awful.menu({
     items = {
         {"awesome", myawesomemenu, beautiful.awesome_icon},
-        {"Debian", debian.menu.Debian_menu.Debian},
+        --{"Debian", debian.menu.Debian_menu.Debian},
         {"&Nautilus", "nautilus --no-desktop", '/usr/share/icons/hicolor/32x32/apps/nautilus.png'},
         {"&Thunar", "thunar"},
         {"屏幕键盘", "matchbox-keyboard", '/usr/share/pixmaps/matchbox-keyboard.png'},
@@ -199,6 +199,7 @@ for s = 1, screen.count() do
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
+
 -- }}}
 
 -- {{{ Mouse bindings
