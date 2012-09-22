@@ -16,6 +16,7 @@ require("cpuwidget")
 require("memwidget")
 require("battery")
 require("wibox4d")
+require("switch")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -78,21 +79,6 @@ layouts =
     awful.layout.suit.magnifier
 }
 
--- Mouse position for every tag
-mouse_position = {}
-for s = 1, screen.count() do
-    mouse_position[s] = {}
-    for t =  1, 9 do
-        local screen_geometry = screen[s].workarea
-        mouse_position[s][t] = {
-            x = screen_geometry.x + screen_geometry.width / 2,
-            y = screen_geometry.y + screen_geometry.height / 2,
-        }
-    end
-end
-
--- Save last used tag over all screen
-last_tag = 1
 -- }}}
 
 -- {{{ Tags
@@ -218,18 +204,8 @@ local globalkeys = awful.util.table.join(
     awful.key({ modkey,}, "Right", awful.tag.viewnext),
     awful.key({ modkey,}, "Escape", awful.tag.history.restore),
 
-    awful.key({ modkey,}, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-            set_mouse_to_client_center()
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ modkey, }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-            set_mouse_to_client_center()
-            if client.focus then client.focus:raise() end
-        end),
+    awful.key({ modkey,}, "j", switch.client_switch_next),
+    awful.key({ modkey,}, "k", switch.client_switch_prev),
     --awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
@@ -237,13 +213,14 @@ local globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, }, "q",
         function ()
-            tag_switch(last_tag)
+            switch.tag_switch(tags, switch.get_last_tag()) -- TODO check diffent with Escape
         end),
     awful.key({ modkey, }, "w",
         function ()
-            save_tag_status()
+            if screen.count() == 1 then return end
+            switch.save_tag_status()
             awful.screen.focus_relative(-1)
-            set_tag_status()
+            switch.restore_tag_status()
         end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
@@ -309,12 +286,12 @@ clientkeys = awful.util.table.join(
             if screen.count() == 1 then
                 return
             end
-            save_tag_status()
+            switch.save_tag_status()
             local tag_idx = awful.tag.getidx(awful.tag.selected(client.focus.screen))
             awful.client.movetoscreen(c)
             awful.client.movetotag(tags[client.focus.screen][tag_idx])
             awful.tag.viewonly(tags[client.focus.screen][tag_idx])
-            set_tag_status()
+            switch.restore_tag_status()
         end),
     awful.key({ modkey, }, "o", function (c)
         if screen.count() == 1 then
@@ -343,66 +320,6 @@ for s = 1, screen.count() do
    keynumber = math.min(9, math.max(#tags[s], keynumber));
 end
 
--- Switch Tag for multi screen
-function tag_switch(i)
-    local cs = mouse.screen
-    local selected_tag_idx = awful.tag.getidx(awful.tag.selected(cs))
-    if i == selected_tag_idx then
-        return -- not current screen
-    end
-    save_tag_status()
-    local ismatched = false
-    if tags[cs][i] and table.getn(tags[cs][i]:clients()) > 0 then
-        awful.tag.viewonly(tags[cs][i]) -- current screen's tag is active
-    else -- other screen's tag is active
-        for j = 1, screen.count() do
-            if table.getn(tags[j][i]:clients()) > 0 then
-                awful.tag.viewonly(tags[j][i])
-                awful.screen.focus(j)
-                ismatched = true
-                break
-            end
-        end
-    end
-    if not ismatched and tags[cs][i] then
-        awful.tag.viewonly(tags[cs][i])
-    end
-    set_tag_status()
-end
-
--- Move mouse to client center
-function set_mouse_to_client_center()
-    local cc = awful.client.next(0)
-    local x = cc:geometry().x
-    local y = cc:geometry().y
-    local width = cc:geometry().width
-    local height = cc:geometry().height
-    mouse.coords({ x = x + width / 2, y = y + height / 2 })
-end
-
--- save tag status
-function save_tag_status(screen, tag)
-    last_tag = awful.tag.getidx(awful.tag.selected(mouse.screen))
-    if screen == nil then
-        screen = mouse.screen
-    end
-    if tag == nil then
-        tag = last_tag
-    end
-    mouse_position[screen][tag] = mouse.coords()
-end
-
--- set tag status
-function set_tag_status(screen, tag)
-    if screen == nil then
-        screen = mouse.screen
-    end
-    if tag == nil then
-        tag = awful.tag.getidx(awful.tag.selected(mouse.screen))
-    end
-    mouse.coords(mouse_position[screen][tag])
-end
-
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -410,7 +327,7 @@ for i = 1, keynumber do
     globalkeys = awful.util.table.join(globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
             function ()
-                tag_switch(i)
+                switch.tag_switch(tags, i)
             end),
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
