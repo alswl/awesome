@@ -1,1 +1,3 @@
 *.swp
+autostart.sh
+rc.lua
