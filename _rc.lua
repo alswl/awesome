@@ -7,7 +7,8 @@ require("beautiful")
 -- Notification library
 require("naughty")
 -- Third party
---require("debian.menu")
+--require("debian.menu") -- ubuntu menu
+-- require("menu_arch") -- arch menu
 require("vicious")
 require("volume")
 require("netwidget")
@@ -78,7 +79,7 @@ layouts =
 }
 
 -- Mouse position for every tag
-mouse_position = {} -- TODO
+mouse_position = {}
 for s = 1, screen.count() do
     mouse_position[s] = {}
     for t =  1, 9 do
@@ -135,7 +136,8 @@ myawesomemenu = {
 mymainmenu = awful.menu({
     items = {
         {"awesome", myawesomemenu, beautiful.awesome_icon},
-        --{"Debian", debian.menu.Debian_menu.Debian},
+        -- {"应用程序 (&A)", debian.menu.Debian_menu.Debian}, -- ubuntu
+        -- {"应用程序 (&A)", xdgmenu}, -- arch
         {"&Nautilus", "nautilus --no-desktop", '/usr/share/icons/hicolor/32x32/apps/nautilus.png'},
         {"&Thunar", "thunar"},
         {"屏幕键盘", "matchbox-keyboard", '/usr/share/pixmaps/matchbox-keyboard.png'},
