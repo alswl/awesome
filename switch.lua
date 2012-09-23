@@ -4,6 +4,16 @@ local screen = require("screen")
 local mouse = require("mouse")
 local client = require("client")
 
+local capi = {
+    io = io,
+    screen = screen,
+    tag = tag,
+    client = client,
+    mouse = mouse,
+    root = root,
+    key = key,
+}
+
 module("switch")
 
 local mouse_position = {}
@@ -86,6 +96,11 @@ function set_mouse_to_client_center()
 end
 
 function client_switch(step)
+    local s = client.focus and client.focus.screen or mouse.screen
+    local t = awful.tag.selected(s)
+    if table.getn(t.clients(t)) < 2 then -- FIXME I prefer tag.clients...
+        return
+    end
     awful.client.focus.byidx(step)
     set_mouse_to_client_center()
     if client.focus then client.focus:raise() end
