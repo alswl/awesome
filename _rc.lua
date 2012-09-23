@@ -60,7 +60,7 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 -- auto run
-awful.util.spawn_with_shell("./autorun.sh")
+awful.util.spawn_with_shell("~/.config/awesome/autostart.sh")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =

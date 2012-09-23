@@ -28,6 +28,6 @@ xmodmap $HOME/.Xmodmap
 #nitrogen --restore
 
 # disable touchpad when typing
-syndaemon -td
+#syndaemon -td
 
 # vim: set ft=sh:
