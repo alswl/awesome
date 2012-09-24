@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #xrandr --output LVDS1 --mode 1366x768
-xrandr --output VGA1 --rotate left --mode 1440x900 --left-of LVDS1
+#xrandr --output VGA1 --rotate left --mode 1440x900 --left-of LVDS1
 #xrandr --output VGA1 --rotate normal --mode 1440x900 --right-of LVDS1
 
 # xscreensaver
@@ -28,6 +28,6 @@ xmodmap $HOME/.Xmodmap
 #nitrogen --restore
 
 # disable touchpad when typing
-syndaemon -td
+#syndaemon -td
 
 # vim: set ft=sh:

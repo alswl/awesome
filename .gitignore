@@ -1,1 +1,7 @@
 *.swp
+autostart.sh
+rc.lua
+menu_arch.lua
+menu.lua
+rule.lua
+variables.lua

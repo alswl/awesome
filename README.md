@@ -14,5 +14,7 @@ Ubuntu(12.04):
 
 ```
 git clone https://github.com/alswl/awesome.git
+mv _autostart.sh autostart.sh
+mv _rc.lua rc.lua
 ln -s /your/awesome/configuration/ ~/.config
 ```
