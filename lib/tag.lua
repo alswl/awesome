@@ -19,8 +19,8 @@ for s = 1, screen.count() do
     -- Each screen has its own tag table.
     if s == 1 then
         tags[s] = awful.tag(tags.names, s, tags.layouts)
-    else -- 第二屏幕，是竖起来的 -- FIXME
-        tags[s] = awful.tag(tags.names, s, awful.layout.suit.tile.bottom)
+    else -- The other screen
+        tags[s] = awful.tag(tags.names, s, awful.layout.suit.max)
     end
 end
 -- }}}
