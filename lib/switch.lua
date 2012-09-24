@@ -4,20 +4,10 @@ local screen = require("screen")
 local mouse = require("mouse")
 local client = require("client")
 
-local capi = {
-    io = io,
-    screen = screen,
-    tag = tag,
-    client = client,
-    mouse = mouse,
-    root = root,
-    key = key,
-}
-
 module("switch")
 
 local mouse_position = {}
-local last_tag = 1
+local last_tag = 2
 
 -- Init mouse position
 for s = 1, screen.count() do

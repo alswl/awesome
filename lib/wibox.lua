@@ -6,7 +6,7 @@ memwidget1 = memwidget.register()
 -- Cpu Widget
 cpuwidget1 = cpuwidget.register()
 -- Net Interface Speed
-netwidget1 = netwidget.register(widget({ type = "textbox" }), "wlan0")
+netwidget1 = netwidget.register(widget({ type = "textbox" }), netif)
 -- Volume Control
 volume1 = volume.register()
 -- Battery

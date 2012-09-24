@@ -13,7 +13,7 @@ mymainmenu = awful.menu({
     items = {
         {"awesome", myawesomemenu, beautiful.awesome_icon},
         -- {"应用程序 (&A)", debian.menu.Debian_menu.Debian}, -- ubuntu
-        {"应用程序 (&A)", xdgmenu}, -- arch
+        -- {"应用程序 (&A)", xdgmenu}, -- arch
         {"&Nautilus", "nautilus --no-desktop", '/usr/share/icons/hicolor/32x32/apps/nautilus.png'},
         {"&Thunar", "thunar"},
         {"屏幕键盘", "matchbox-keyboard", '/usr/share/pixmaps/matchbox-keyboard.png'},
@@ -21,7 +21,7 @@ mymainmenu = awful.menu({
     }
 })
 
-local mylauncher = awful.widget.launcher({
+mylauncher = awful.widget.launcher({
     image = image(beautiful.awesome_icon),
     menu = mymainmenu })
 -- }}}
