@@ -7,9 +7,9 @@ tags = {
         awful.layout.suit.tile,
         awful.layout.suit.tile,
         awful.layout.suit.max,
-        awful.layout.suit.floating,
-        awful.layout.suit.floating,
-        awful.layout.suit.floating,
+        awful.layout.suit.tile,
+        awful.layout.suit.tile,
+        awful.layout.suit.tile,
         awful.layout.suit.floating,
         awful.layout.suit.floating,
         awful.layout.suit.floating
