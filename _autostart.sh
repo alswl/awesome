@@ -10,7 +10,7 @@
 # Desktop effect, for example transparency
 #xcompmgr &
 
-xmodmap $HOME/.Xmodmap
+#xmodmap $HOME/.Xmodmap
 
 # Dropbox
 #dropbox start
@@ -22,7 +22,8 @@ xmodmap $HOME/.Xmodmap
 #trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 128 --transparent true --alpha 0 --tint 0x000000 --height 18 &
 
 # ssh-proxy
-#ssh alswl@log4d.com -ND 7070 &
+#ssh user@vps.com -ND 7070 &
+#autossh -M 20000 -f -q -N -D 7070 user@vps.com
 
 # wallpaper
 #nitrogen --restore
