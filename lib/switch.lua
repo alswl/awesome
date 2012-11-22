@@ -7,7 +7,7 @@ local client = require("client")
 module("switch")
 
 local mouse_position = {}
-local last_tag = 2
+local last_tag = 1
 
 -- Init mouse position
 for s = 1, screen.count() do
