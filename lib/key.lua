@@ -2,7 +2,7 @@
 globalkeys = awful.util.table.join(
     awful.key({ modkey,}, "Left", awful.tag.viewprev),
     awful.key({ modkey,}, "Right", awful.tag.viewnext),
-    awful.key({ modkey,}, "Escape", awful.tag.history.restore),
+    --awful.key({ modkey,}, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,}, "j", switch.client_switch_next),
     awful.key({ modkey,}, "k", switch.client_switch_prev),
@@ -11,11 +11,11 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, }, "q",
+    awful.key({ modkey, }, "Tab",
         function ()
             switch.tag_switch(tags, switch.get_last_tag()) -- TODO check diffent with Escape
         end),
-    awful.key({ modkey, }, "w",
+    awful.key({ modkey,}, "Escape",
         function ()
             if screen.count() == 1 then return end
             switch.save_tag_status()
@@ -23,19 +23,19 @@ globalkeys = awful.util.table.join(
             switch.restore_tag_status()
         end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
+    --awful.key({ modkey, }, "Tab",
+        --function ()
+            --awful.client.focus.history.previous()
+            --if client.focus then
+                --client.focus:raise()
+            --end
+        --end),
 
     -- Standard program
     awful.key({ modkey, }, "Return",
         function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Control" }, "[", awesome.restart),
+    --awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey, }, "l",
         function () awful.tag.incmwfact( 0.05) end),
@@ -54,14 +54,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space",
         function () awful.layout.inc(layouts, -1) end),
 
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    --awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Lock screen
     awful.key({ modkey, "Shift" }, "l",
         function () awful.util.spawn("xscreensaver-command -lock") end),
 
     -- Prompt
-    awful.key({ modkey }, "p",
+    awful.key({ modkey }, "r",
         function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
@@ -124,25 +124,26 @@ end
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, keynumber do
+    key = string.sub(tags['names'][i], 1, 1)
     globalkeys = awful.util.table.join(globalkeys,
-        awful.key({ modkey }, "#" .. i + 9,
+        awful.key({ modkey }, key,
             function ()
                 switch.tag_switch(tags, i)
             end),
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+        awful.key({ modkey, "Control" }, key,
                   function ()
                       local screen = mouse.screen
                       if tags[screen][i] then
                           awful.tag.viewtoggle(tags[screen][i])
                       end
                   end),
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Shift" }, key,
                   function ()
                       if client.focus and tags[client.focus.screen][i] then
                           awful.client.movetotag(tags[client.focus.screen][i])
                       end
                   end),
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Control", "Shift" }, key,
                   function ()
                       if client.focus and tags[client.focus.screen][i] then
                           awful.client.toggletag(tags[client.focus.screen][i])
