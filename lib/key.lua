@@ -61,7 +61,7 @@ globalkeys = awful.util.table.join(
         function () awful.util.spawn("xscreensaver-command -lock") end),
 
     -- Prompt
-    awful.key({ modkey }, "r",
+    awful.key({ modkey }, "p",
         function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
