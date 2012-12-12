@@ -11,11 +11,11 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, }, "Tab",
+    awful.key({ modkey, }, "Escape",
         function ()
             switch.tag_switch(tags, switch.get_last_tag()) -- TODO check diffent with Escape
         end),
-    awful.key({ modkey,}, "Escape",
+    awful.key({ modkey,}, "Tab",
         function ()
             if screen.count() == 1 then return end
             switch.save_tag_status()
