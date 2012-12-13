@@ -34,7 +34,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey, }, "Return",
         function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "[", awesome.restart),
+    awful.key({ modkey, "Control" }, "\\", awesome.restart),
     --awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey, }, "l",
@@ -111,7 +111,18 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+
+    -- Sound
+    awful.key({ modkey, }, "-",
+        function () awful.util.spawn("amixer -q -c 0 sset Master 5%-") end),
+    awful.key({ modkey, }, "=",
+        function () awful.util.spawn("amixer -q -c 0 sset Master 5%+") end),
+    -- Screen Brightness
+    awful.key({ modkey, }, "[",
+        function () awful.util.spawn("xbacklight - 20") end),
+    awful.key({ modkey, }, "]",
+        function () awful.util.spawn("xbacklight + 20") end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
