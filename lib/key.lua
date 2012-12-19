@@ -118,11 +118,17 @@ clientkeys = awful.util.table.join(
         function () awful.util.spawn("amixer -q -c 0 sset Master 5%-") end),
     awful.key({ modkey, }, "=",
         function () awful.util.spawn("amixer -q -c 0 sset Master 5%+") end),
+    awful.key({ modkey, }, "BackSpace",
+        function () awful.util.spawn("amixer -q -c 0 sset Master toggle") end),
     -- Screen Brightness
     awful.key({ modkey, }, "[",
-        function () awful.util.spawn("xbacklight - 20") end),
+        function () awful.util.spawn("xbacklight - 10") end),
     awful.key({ modkey, }, "]",
-        function () awful.util.spawn("xbacklight + 20") end)
+        function () awful.util.spawn("xbacklight + 10") end),
+    awful.key({}, "XF86MonBrightnessUp",
+        function () awful.util.spawn("xbacklight + 10") end),
+    awful.key({}, "XF86MonBrightnessDown",
+        function () awful.util.spawn("xbacklight - 10") end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
