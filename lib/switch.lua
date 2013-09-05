@@ -53,6 +53,7 @@ function tag_switch(tags, i)
     local cs = client.focus and client.focus.screen or mouse.screen
     local tag_idx = awful.tag.getidx(awful.tag.selected(cs))
     if i == tag_idx then
+        client_switch_next()
         return -- not current screen
     end
     save_tag_status()
