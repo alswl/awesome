@@ -1,5 +1,12 @@
 # alswl 的 Awesome 配置#
 
+## 厉害的地方 ##
+
+* 改进过的 Tag 系统，使用 ```123qweas``， 而不是使用 `123456789`
+* 鼠标位置记忆
+* 多屏幕支持卓越，自由跳转
+* 音量、亮度快捷键
+
 ## 依赖 ##
 
 Arch:
@@ -31,7 +38,7 @@ ln -s /your/awesome/configuration/ ~/.config
 * `Mod + Esc` 最后 tag 切换（我切换了 Esc / Caps Lock）
 * `Mod + Tab` 焦点在 screen 之间移动
 * `Mod + Return` 打开 terminal (tilda)
-* `Mod + Control + \\` 重启 awesome
+* `Mod + Control + \ ` 重启 awesome
 * `Mod + l / Mod + h` 调整 client 尺寸
 * `Mod + Space` 下一个布局
 * `Mod + Shift + Space` 上一个布局
@@ -51,4 +58,4 @@ ln -s /your/awesome/configuration/ ~/.config
 * `Mod + m` 最大化
 * `Mod + - / Mod + = / Mod + BackSpace` 音量控制
 * `Mod + [ / Mod + ]` 亮度控制
-* `Mod + \`123qweas` tag 跳转
+* `Mod + ``123qweas` tag 跳转
