@@ -92,8 +92,8 @@ clientkeys = awful.util.table.join(
             local cs_index = client.focus and client.focus.screen or mouse.screen
             for i = 1, table.getn(c_tag:clients()) do
                 awful.client.movetoscreen(c_tag:clients()[i], cs_index % screen:count() + 1) -- default to screen + 1
+                awful.client.movetotag(tags[cs_index % screen:count() + 1][tag_idx], c_tag:clients()[i])
             end
-            awful.client.movetotag(tags[client.focus.screen][tag_idx])
             awful.tag.viewonly(tags[client.focus.screen][tag_idx])
             switch.restore_tag_status()
         end),
