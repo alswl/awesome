@@ -46,7 +46,7 @@ ln -s /your/awesome/configuration/ ~/.config
  * `Mod + ->` 当前屏幕右侧 tag
  * `Mod + j / Mod + k` 当前 tag 中 client 切换
  * `Mod + Esc` 最后 tag 切换（我切换了 Esc / Caps Lock）
- * `Mod + `` `123qweas`` tag 跳转
+ * ``Mod +  `123qweas`` tag 跳转
  * `Mod + Space` 下一个布局
  * `Mod + Shift + Space` 上一个布局
 * Client 操作
