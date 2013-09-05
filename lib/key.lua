@@ -22,7 +22,7 @@ globalkeys = awful.util.table.join(
             awful.screen.focus_relative(-1)
             switch.restore_tag_status()
         end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto), -- TODO what?
     --awful.key({ modkey, }, "Tab",
         --function ()
             --awful.client.focus.history.previous()
@@ -41,14 +41,14 @@ globalkeys = awful.util.table.join(
         function () awful.tag.incmwfact( 0.05) end),
     awful.key({ modkey,           }, "h",
         function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",
-        function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",
-        function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",
-        function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",
-        function () awful.tag.incncol(-1)         end),
+    --awful.key({ modkey, "Shift"   }, "h",
+        --function () awful.tag.incnmaster( 1)      end),
+    --awful.key({ modkey, "Shift"   }, "l",
+        --function () awful.tag.incnmaster(-1)      end),
+    --awful.key({ modkey, "Control" }, "h",
+        --function () awful.tag.incncol( 1)         end),
+    --awful.key({ modkey, "Control" }, "l",
+        --function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space",
         function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space",
