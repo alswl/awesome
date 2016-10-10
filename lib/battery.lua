@@ -1,6 +1,6 @@
 local awful = require("awful")
 local vicious = require("vicious")
-local widget_module = require("widget")
+local widget_module = require("wibox.widget")
 
 module("battery")
 

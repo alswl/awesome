@@ -11,7 +11,7 @@ function register()
     widget:set_background_color("#494B4F")
     widget:set_border_color(nil)
     widget:set_color("#AECF96")
-    widget:set_gradient_colors({ "#AECF96", "#88A175", "#FF5656" })
+    --widget:set_gradient_colors({ "#AECF96", "#88A175", "#FF5656" })
     -- Register widget
     vicious.register(widget, vicious.widgets.mem, "$1", 13)
     return widget

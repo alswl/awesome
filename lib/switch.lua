@@ -1,8 +1,7 @@
-local table = table
 local awful = require("awful")
-local screen = require("screen")
-local mouse = require("mouse")
-local client = require("client")
+awful.mouse = require("awful.mouse")
+awful.client = require("awful.client")
+local screen = screen -- TODO
 
 module("switch")
 
@@ -61,10 +60,10 @@ function tag_switch(tags, i)
     if tags[cs][i] and table.getn(tags[cs][i]:clients()) > 0 then
         awful.tag.viewonly(tags[cs][i]) -- current screen's tag is active
     else -- other screen's tag is active
-        for j = 1, screen.count() do
+        for j = 1, awful.screen.count() do
             if table.getn(tags[j][i]:clients()) > 0 then
                 awful.tag.viewonly(tags[j][i])
-                awful.screen.focus(j)
+                screen.focus(j)
                 ismatched = true
                 break
             end

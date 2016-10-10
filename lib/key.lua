@@ -1,3 +1,5 @@
+local awful = require("awful")
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ modkey,}, "Left", awful.tag.viewprev),

@@ -14,7 +14,7 @@ local io = io
 local os = os
 local string = string
 local awful = require("awful")
-local widget_module = require("widget")
+local widget_module = require("wibox.widget")
 
 module("volume")
 

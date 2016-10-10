@@ -1,3 +1,5 @@
+local awful = require("awful")
+
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
