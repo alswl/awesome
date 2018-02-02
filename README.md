@@ -1,4 +1,4 @@
-# alswl 的 Awesome 配置#
+# alswl 的 Awesome 配置
 
 ## 厉害的地方 ##
 
@@ -11,7 +11,7 @@
 
 Arch:
 
-`awesome` / `vicious`
+`awesome` / `vicious` / `arch-xdg-menu`
 
 Ubuntu(12.04):
 
@@ -27,6 +27,9 @@ cp _rc.lua rc.lua
 cp _rule.lua rule.lua
 cp _variables.lua variables.lua
 ln -s /your/awesome/configuration/ ~/.config
+
+# generate arch menus
+xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu >~/.config/awesome/archmenu.lua
 ```
 
 ## 快捷键 ##

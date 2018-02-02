@@ -1,6 +1,6 @@
 *.swp
 autostart.sh
-menu_arch.lua
+archmenu.lua
 menu.lua
 rule.lua
 variables.lua
