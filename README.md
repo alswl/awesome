@@ -95,3 +95,8 @@ Shortcut:
 *   Multi screen
     *   `Mod + l / Mod +h`
         *   Switch between screen  # TODO
+
+
+
+中文版本：
+[awesome/README_cn.md at master · alswl/awesome](https://github.com/alswl/awesome/blob/master/README_cn.md)

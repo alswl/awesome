@@ -95,3 +95,7 @@ xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu >~/.
 *   多屏操作
     *   `Mod + l / Mod +h`
         *   屏幕间切换 # TODO
+
+
+English version:
+[awesome/README.md at master · alswl/awesome](https://github.com/alswl/awesome/blob/master/README.md)
