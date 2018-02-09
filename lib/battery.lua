@@ -4,8 +4,8 @@ local widget_module = require("wibox.widget")
 
 module("battery")
 
-function register(widget)
-    widget = widget or widget_module({ type = "textbox" })
+function register()
+    widget = widget_module.textbox()
     vicious.register(widget, vicious.widgets.bat, ' <span color="#0000ff">$1$2%</span>', 5, 'BAT0')
     return widget
 end

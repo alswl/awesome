@@ -10,6 +10,7 @@ require("lib/memwidget")
 require("lib/cpuwidget")
 require("lib/netwidget")
 require("lib/volume")
+require("lib/battery")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -19,11 +20,12 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock(" %a %m-%d %H:%M")
 mymemwidget = memwidget.register()
 mycpuwidget = cpuwidget.register()
 mynetwidget = netwidget.register(netif)
 myvolumnwidget = volume.register()
+mybattery = battery.register()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -127,6 +129,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mycpuwidget,
             mymemwidget,
+            mybattery,
             mynetwidget,
             myvolumnwidget,
             mytextclock,
