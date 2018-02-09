@@ -1,66 +1,69 @@
-# alswl 的 Awesome 配置
+# alswl's Awesome WM Configuration
 
-## 厉害的地方 ##
+## Feature
 
-* 改进过的 Tag 系统，使用 `` `123qweas``， 而不是使用 `123456789`
-* 鼠标位置记忆
-* 多屏幕支持卓越，自由跳转
-* 音量、亮度快捷键
+*   improved tag name, use `\`123as689` or self defined tag name
+*   mouse position remember for every window client # TODO
+*   multi screen support # TODO
+*   voluem / cpu / mem / eth widgets
 
-## 依赖 ##
+Now this configuration support awesome v4.2.
 
-Arch:
+## Dependency
 
-`awesome` / `vicious` / `arch-xdg-menu`
+Arch(tested):
+
+`awesome` / `vicious`
 
 Ubuntu(12.04):
 
 `awesome` / `awesome-extra`
 
-## 用法 ##
+## Install
 
-```
+
+```bash
+cd /your/configuration/path/
+cd awesome
 git clone https://github.com/alswl/awesome.git
-cp _autostart.sh autostart.sh
-cp _menu.lua menu.lua
-cp _rc.lua rc.lua
-cp _rule.lua rule.lua
-cp _variables.lua variables.lua
-ln -s /your/awesome/configuration/ ~/.config
+ln -s $PWD ~/.config
 
-# generate arch menus
+# generate menu
 xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu >~/.config/awesome/archmenu.lua
+
+# restart awesome
 ```
 
-## 快捷键 ##
+## Usage
 
-* 系统功能
- * `Mod + Return` 打开 terminal (tilda)
- * `Mod + Control + \ ` 重启 awesome
- * `Mod + Shift + l` Lock
- * `Mod + p` run command
- * `Mod + x` run lua
- * `Mod + f` 全屏
- * `Mod + Shift + r` client 重绘
- * `Mod + - / Mod + = / Mod + BackSpace` 音量控制
- * `Mod + [ / Mod + ]` 亮度控制
-* Tag 操作
- * `Mod + <-` 当前屏幕左侧 tag
- * `Mod + ->` 当前屏幕右侧 tag
- * `Mod + j / Mod + k` 当前 tag 中 client 切换
- * `Mod + Esc` 最后 tag 切换（我切换了 Esc / Caps Lock）
- * ``Mod +  `123qweas`` tag 跳转
- * `Mod + Space` 下一个布局
- * `Mod + Shift + Space` 上一个布局
-* Client 操作
- * `Mod + Shift + j / Mod + Shift + k` 当前 client 在 tag 中位置移动
- * `Mod + l / Mod + h` 调整 client 尺寸
- * `Mod + Shift + c` 关闭当前 client
- * `Mod + Control + Space` 漂浮当前 client
- * `Mod + Control + Return` 当前 client 设为主 Client
- * `Mod + n` 最小化
- * `Mod + m` 最大化
-* 多屏操作
- * `Mod + Tab` 焦点在 screen 之间移动
- * `Mod + i` 当前 client 移到下一个显示器对应 Tag
- * `Mod + o` 当前 client 移到下一个显示器当前 Tag
+Shortcut:
+
+
+*   System
+    *   `Mod + Return` Open terminal
+    *   `Mod + Shift + r ` Restart awesome
+    *   `Mod + Shift + l` Lock Screen
+    *   `Mod + r` Run command
+    *   `Mod + x` Run lua
+    *   `Mod + f` Fullscreen
+    *   `Mod + - / Mod + = / Mod + BackSpace` Volume control
+    *   `Media key` Volume control
+    *   `Mod + [ / Mod + ]` Brightness control # TODO
+*   Tag
+    *   `Mod + i` Left tag in same screen
+    *   `Mod + o` Right tag in same screen
+    *   `Mod + j / Mod + k` Siwth client in current tag
+    *   `Mod + Esc` Switch last used tag
+    *   ``Mod +  `123qweas`` swich tag
+    *   `Mod + Space` Next layout
+    *   `Mod + Shift + Space` Last layout
+*   Client
+    *   `Mod + Shift + j / Mod + Shift + k` Move client
+    *   `Mod + q` Close client
+    *   `Mod + Control + Space` set client Float
+    *   `Mod + Control + Return` Set client to main client
+    *   `Mod + Shift + n` Set client minimal
+    *   `Mod + Shift + m` Set client max size
+    *   `Mod + \\` Set client max height
+*   Multi screen
+    *   `Mod + l / Mod +h` Switch between screen  # TODO

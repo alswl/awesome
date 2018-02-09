@@ -129,6 +129,18 @@ globalkeys = gears.table.join(
    awful.key({ }, "XF86AudioMute",
              function ()
                  volume.toggle(myvolumnwidget)
+             end),
+    awful.key({ modkey }, "=",
+              function ()
+                 volume.up(myvolumnwidget)
+              end),
+   awful.key({ modkey }, "-",
+             function ()
+                 volume.down(myvolumnwidget)
+             end),
+   awful.key({ modkey }, "BackSpace",
+             function ()
+                 volume.toggle(myvolumnwidget)
              end)
 )
 
