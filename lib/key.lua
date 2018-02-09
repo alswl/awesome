@@ -27,8 +27,13 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "o",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    awful.key({ modkey, "Shift"   }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+              --
+    -- Lock screen
+    awful.key({ modkey, "Ctrl" }, "l",
+        function () awful.util.spawn("xscreensaver-command -lock") end,
+        {description = "lock screen", group = "awesome"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -56,7 +61,7 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ modkey,           }, "Tab" ,
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -121,27 +126,33 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioRaiseVolume",
               function ()
                  volume.up(myvolumnwidget)
-              end),
+              end,
+              {description = "volume up", group = "media"}),
    awful.key({ }, "XF86AudioLowerVolume",
              function ()
                  volume.down(myvolumnwidget)
-             end),
+             end,
+             {description = "volume down", group = "media"}),
    awful.key({ }, "XF86AudioMute",
              function ()
                  volume.toggle(myvolumnwidget)
-             end),
+             end,
+              {description = "volume mute toggle", group = "media"}),
     awful.key({ modkey }, "=",
               function ()
                  volume.up(myvolumnwidget)
-              end),
+              end,
+              {description = "volume up", group = "media"}),
    awful.key({ modkey }, "-",
              function ()
                  volume.down(myvolumnwidget)
-             end),
+             end,
+             {description = "volume down", group = "media"}),
    awful.key({ modkey }, "BackSpace",
              function ()
                  volume.toggle(myvolumnwidget)
-             end)
+             end,
+             {description = "volume mute toggle", group = "media"})
 )
 
 clientkeys = gears.table.join(

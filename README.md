@@ -41,8 +41,8 @@ Shortcut:
 
 *   System
     *   `Mod + Return` Open terminal
-    *   `Mod + Shift + r ` Restart awesome
-    *   `Mod + Shift + l` Lock Screen
+    *   `Mod + Ctrl + r ` Restart awesome
+    *   `Mod + Ctrl + l` Lock Screen
     *   `Mod + r` Run command
     *   `Mod + x` Run lua
     *   `Mod + f` Fullscreen
@@ -53,13 +53,14 @@ Shortcut:
     *   `Mod + i` Left tag in same screen
     *   `Mod + o` Right tag in same screen
     *   `Mod + j / Mod + k` Siwth client in current tag
-    *   `Mod + Esc` Switch last used tag
+    *   `Mod + Shift + Esc` Switch last used tag
     *   ``Mod +  `123qweas`` swich tag
     *   `Mod + Space` Next layout
     *   `Mod + Shift + Space` Last layout
 *   Client
     *   `Mod + Shift + j / Mod + Shift + k` Move client
     *   `Mod + q` Close client
+    *   `Mod + Tab` Switch last used client
     *   `Mod + Control + Space` set client Float
     *   `Mod + Control + Return` Set client to main client
     *   `Mod + Shift + n` Set client minimal
