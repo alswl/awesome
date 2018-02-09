@@ -2,7 +2,7 @@
 -- Volume manager for the awesome window manager
 ---------------------------------------------------------------
 -- Usage:
--- 1. require("volume")
+-- 1.  require("volume")
 -- 2.  volume1 = widget({ type = "textbox", name = "volume1", align = "right" })
 --     volume.register(volume1)
 -- 3.  s == 1 and volume1 or nil, -- in and volume1
@@ -18,11 +18,10 @@ local widget_module = require("wibox.widget")
 
 module("volume")
 
-local volume_cardid  = 0
 local volume_channel = "Master"
 
 function update(widget)
-    local fd = io.popen("amixer -c " .. volume_cardid .. " -- sget " .. volume_channel)
+    local fd = io.popen("amixer -- sget " .. volume_channel)
     local status = fd:read("*all")
     fd:close()
 
@@ -34,23 +33,23 @@ function update(widget)
     if string.find(status, "on", 1, true) then
         volume = '♫' .. volume .. "%"
     else
-        volume = '♫' .. volume .. '<span color="red">M</span>'
+        volume = '♫' .. volume .. 'M'
     end
     widget.text = volume
 end
 
 function up(widget)
-    io.popen("amixer -q -c " .. volume_cardid .. " sset " .. volume_channel .. " 5%+"):read("*all")
+    io.popen("amixer -q sset " .. volume_channel .. " 5%+"):read("*all")
     update(widget)
 end
 
 function down(widget)
-    io.popen("amixer -q -c " .. volume_cardid .. " sset " .. volume_channel .. " 5%-"):read("*all")
+    io.popen("amixer -q sset " .. volume_channel .. " 5%-"):read("*all")
     update(widget)
 end
 
 function toggle(widget)
-    io.popen("amixer -c " .. volume_cardid .. " sset " .. volume_channel .. " toggle"):read("*all")
+    io.popen("amixer sset " .. volume_channel .. " toggle"):read("*all")
     update(widget)
 end
 

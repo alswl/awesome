@@ -10,8 +10,10 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 
+
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 require("awful.hotkeys_popup.keys")
+require("lib/volume")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -115,7 +117,19 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    awful.key({ }, "XF86AudioRaiseVolume",
+              function ()
+                 awful.util.spawn("amixer -q sset Master 5%+")
+              end),
+   awful.key({ }, "XF86AudioLowerVolume",
+             function ()
+                 awful.util.spawn("amixer -q sset Master 5%-")
+             end),
+   awful.key({ }, "XF86AudioMute",
+             function ()
+                 awful.util.spawn("amixer -q sset Master toggle")
+             end)
 )
 
 clientkeys = gears.table.join(
@@ -231,6 +245,8 @@ clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize))
+
+volume.get_keys(volume1)
 
 -- Set keys
 root.keys(globalkeys)
