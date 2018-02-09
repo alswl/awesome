@@ -6,6 +6,9 @@ local vicious = require("vicious")
 
 -- Widget and layout library
 local wibox = require("wibox")
+require("lib/memwidget")
+require("lib/cpuwidget")
+require("lib/netwidget")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -16,31 +19,9 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-
-memwidget = awful.widget.graph()
-memwidget:set_width(32)
---memwidget:set_vertical(true)
-memwidget:set_background_color("#494B4F")
-memwidget:set_border_color(nil)
-memwidget:set_color({
-    type = "linear",
-    from = { 0, 0 },
-    to = { 10,0 },
-    stops = { {0, "#AECF96"}, {0.5, "#88A175"}, 
-    {1, "#FF5656"}}}
-)
-vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
-
-cpuwidget = awful.widget.graph()
-cpuwidget:set_width(32)
-cpuwidget:set_background_color("#494B4F")
-cpuwidget:set_color({
-	type = "linear",
-	from = { 0, 0 },
-	to = { 10,0 },
-	stops = { {0, "#FF5656"}, {0.5, "#88A175"}, 
-	{1, "#AECF96" }}})
-vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
+mymemwidget = memwidget.register()
+mycpuwidget = cpuwidget.register()
+mynetwidget = netwidget.register(netif)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -142,8 +123,9 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            cpuwidget,
-            memwidget,
+            mycpuwidget,
+            mymemwidget,
+            mynetwidget,
             mytextclock,
             s.mylayoutbox,
         },

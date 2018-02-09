@@ -4,15 +4,18 @@ local vicious = require("vicious")
 module("memwidget")
 
 function register()
-    local widget = awful.widget.progressbar()
-    widget:set_width(8)
-    widget:set_height(10)
-    widget:set_vertical(true)
-    widget:set_background_color("#494B4F")
-    widget:set_border_color(nil)
-    widget:set_color("#AECF96")
-    --widget:set_gradient_colors({ "#AECF96", "#88A175", "#FF5656" })
-    -- Register widget
-    vicious.register(widget, vicious.widgets.mem, "$1", 13)
-    return widget
+    memwidget = awful.widget.graph()
+    memwidget:set_width(32)
+    --memwidget:set_vertical(true)
+    memwidget:set_background_color("#494B4F")
+    memwidget:set_border_color(nil)
+    memwidget:set_color({
+        type = "linear",
+        from = { 0, 0 },
+        to = { 10,0 },
+        stops = { {0, "#AECF96"}, {0.5, "#88A175"}, 
+        {1, "#FF5656"}}}
+        )
+        vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
+    return memwidget
 end
