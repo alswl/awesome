@@ -49,7 +49,7 @@ function down(widget)
 end
 
 function toggle(widget)
-    io.popen("amixer sset " .. volume_channel .. " toggle"):read("*all")
+    io.popen("amixer -q sset " .. volume_channel .. " toggle"):read("*all")
     update(widget)
 end
 

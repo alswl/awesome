@@ -120,15 +120,15 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     awful.key({ }, "XF86AudioRaiseVolume",
               function ()
-                 awful.util.spawn("amixer -q sset Master 5%+")
+                 volume.up(myvolumnwidget)
               end),
    awful.key({ }, "XF86AudioLowerVolume",
              function ()
-                 awful.util.spawn("amixer -q sset Master 5%-")
+                 volume.down(myvolumnwidget)
              end),
    awful.key({ }, "XF86AudioMute",
              function ()
-                 awful.util.spawn("amixer -q sset Master toggle")
+                 volume.toggle(myvolumnwidget)
              end)
 )
 
