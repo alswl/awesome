@@ -1,6 +1,6 @@
 # alswl's Awesome WM Configuration
 
-##功能
+## 功能
 
 *   改进过的 Tag 系统，使用 `` `123qweas``， 而不是使用 `123456789`
 *   鼠标位置记忆
