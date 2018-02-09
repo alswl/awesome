@@ -55,7 +55,7 @@ function toggle(widget)
 end
 
 function register()
-    local widget = widget_module({ type = "textbox", name = "volume1", align = "right" })
+    local widget = widget_module.textbox()
     widget.width = 45
     widget:buttons(awful.util.table.join(
         awful.button({ }, 4, function () up(widget) end),

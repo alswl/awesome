@@ -9,6 +9,7 @@ local wibox = require("wibox")
 require("lib/memwidget")
 require("lib/cpuwidget")
 require("lib/netwidget")
+require("lib/volume")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -22,6 +23,7 @@ mytextclock = wibox.widget.textclock()
 mymemwidget = memwidget.register()
 mycpuwidget = cpuwidget.register()
 mynetwidget = netwidget.register(netif)
+myvolumnwidget = volume.register()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -126,6 +128,7 @@ awful.screen.connect_for_each_screen(function(s)
             mycpuwidget,
             mymemwidget,
             mynetwidget,
+            myvolumnwidget,
             mytextclock,
             s.mylayoutbox,
         },
