@@ -40,31 +40,58 @@ Shortcut:
 
 
 *   System
-    *   `Mod + Return` Open terminal
-    *   `Mod + Ctrl + r ` Restart awesome
-    *   `Mod + Ctrl + l` Lock Screen
-    *   `Mod + r` Run command
-    *   `Mod + x` Run lua
-    *   `Mod + f` Fullscreen
-    *   `Mod + - / Mod + = / Mod + BackSpace` Volume control
-    *   `Media key` Volume control
-    *   `Mod + [ / Mod + ]` Brightness control # TODO
+    *   `Mod + Return`
+        *   Open terminal
+    *   `Mod + Ctrl + r `
+        *   Restart awesome
+    *   `Mod + Ctrl + l`
+        *   Lock Screen
+    *   `Mod + r`
+        *   Run command
+    *   `Mod + x`
+        *   Run lua
+    *   `Mod + f`
+        *   Fullscreen
+    *   `Mod + - / Mod + = / Mod + BackSpace`
+        *   Volume control
+    *   `Media key`
+        *   Volume control
+    *   `Mod + [ / Mod + ]`
+        *   Brightness control # TODO
 *   Tag
-    *   `Mod + i` Left tag in same screen
-    *   `Mod + o` Right tag in same screen
-    *   `Mod + j / Mod + k` Siwth client in current tag
-    *   `Mod + Shift + Esc` Switch last used tag
-    *   ``Mod +  `123qweas`` swich tag
-    *   `Mod + Space` Next layout
-    *   `Mod + Shift + Space` Last layout
+    *   `Mod + i`
+        *   Left tag in same screen
+    *   `Mod + o`
+        *   Right tag in same screen
+    *   `Mod + j / Mod + k`
+        *   Siwth client in current tag
+    *   `Mod + Shift + Esc`
+        *   Switch last used tag
+    *   `Mod +  \`123qweas`
+        *   swich tag
+    *   `Mod + Space`
+        *   Next layout
+    *   `Mod + Shift + Space`
+        *   Last layout
 *   Client
-    *   `Mod + Shift + j / Mod + Shift + k` Move client
-    *   `Mod + q` Close client
-    *   `Mod + Tab` Switch last used client
-    *   `Mod + Control + Space` set client Float
-    *   `Mod + Control + Return` Set client to main client
-    *   `Mod + Shift + n` Set client minimal
-    *   `Mod + Shift + m` Set client max size
-    *   `Mod + \\` Set client max height
+    *   `Mod + Shift + j / Mod + Shift + k`
+        *   Move client
+    *   `Mod + q`
+        *   Close client
+    *   `Mod + Tab`
+        *   Switch last used client
+    *   `Mod + Control + Space`
+        *   set client Float
+    *   `Mod + Control + Return`
+        *   Set client to main client
+    *   `Mod + n`
+        *   Set client minimal
+    *   `Mod + Shift + m`
+        *   Set client max size
+    *   `Mod + \\`
+        *   Set client max height
+    *   `Mod + m`
+        *   Set client center
 *   Multi screen
-    *   `Mod + l / Mod +h` Switch between screen  # TODO
+    *   `Mod + l / Mod +h`
+        *   Switch between screen  # TODO
