@@ -65,7 +65,9 @@ Shortcut:
         *   Right tag in same screen
     *   `Mod + j / Mod + k`
         *   Siwth client in current tag
-    *   `Mod + Shift + Esc`
+    *   `Mod + Shift + Tab`
+        *   Switch last used tag
+    *   `Ctrl + Tab`
         *   Switch last used tag
     *   `Mod +  \`123qweas`
         *   swich tag

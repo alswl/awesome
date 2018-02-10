@@ -65,14 +65,17 @@ xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu >~/.
         *   当前屏幕右侧 tag
     *   `Mod + j / Mod + k`
         *   当前 tag 中 client 切换
-    *   `Mod + Shift + Esc`
+    *   `Mod + Shift + Tab`
         *   最后 tag 切换（我切换了 Esc / Caps Lock）
+    *   `Ctrl + Tab`
+        *   切换到最后一个 tag
     *   `Mod +  \`123qweas`
         *   tag 跳转
     *   `Mod + Space`
         *   下一个布局
     *   `Mod + Shift + Space`
         *   上一个布局
+    *   `Mod + Shift + Tab`
 *   Client 操作
     *   `Mod + Shift + j / Mod + Shift + k`
         *   当前 client 在 tag 中位置移动

@@ -29,6 +29,8 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey, "Shift"   }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+    awful.key({ "Ctrl",           }, "Tab", awful.tag.history.restore,
+              {description = "go back", group = "tag"}),
               --
     -- Lock screen
     awful.key({ modkey, "Ctrl" }, "l",
