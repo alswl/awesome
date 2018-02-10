@@ -31,9 +31,9 @@ function update(widget)
     status = string.match(status, "%[(o[^%]]*)%]")
 
     if string.find(status, "on", 1, true) then
-        volume = '♫' .. volume .. "%"
+        volume = '🔊' .. volume .. "%"
     else
-        volume = '♫' .. volume .. 'M'
+        volume = '🔇' .. volume .. '%'
     end
     widget.text = volume
 end

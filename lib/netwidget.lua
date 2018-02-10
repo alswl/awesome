@@ -6,7 +6,7 @@ local string = require("string")
 module("netwidget")
 
 function netwidget_text(netif)
-    return '↓<span color="#5798d9">${' ..netif.. ' down_kb}</span> ↑<span color="#c2ba62">${' ..netif.. ' up_kb}</span> '
+    return '⬇️<span color="#5798d9">${' ..netif.. ' down_kb}</span> ⬆️<span color="#c2ba62">${' ..netif.. ' up_kb}</span> '
 end
 
 function register(netif)

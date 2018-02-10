@@ -6,6 +6,6 @@ module("battery")
 
 function register()
     widget = widget_module.textbox()
-    vicious.register(widget, vicious.widgets.bat, ' <span color="#0000ff">$1$2%</span>', 5, 'BAT0')
+    vicious.register(widget, vicious.widgets.bat, '🔋 $1$2%', 5, 'BAT0')
     return widget
 end
