@@ -1,6 +1,7 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local vicious = require("vicious")
+local string = require("string")
 
 module("netwidget")
 
@@ -10,6 +11,8 @@ end
 
 function register(netif)
     widget = wibox.widget.textbox()
+    widget.forced_width = 80
+    widget.align = "center"
     vicious.register(widget, vicious.widgets.net, netwidget_text(netif) , 2)
     return widget
 end
