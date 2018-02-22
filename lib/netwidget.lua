@@ -11,7 +11,7 @@ end
 
 function register(netif)
     widget = wibox.widget.textbox()
-    widget.forced_width = 80
+    widget.forced_width = 100
     widget.align = "center"
     vicious.register(widget, vicious.widgets.net, netwidget_text(netif) , 2)
     return widget
