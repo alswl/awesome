@@ -94,7 +94,8 @@ client_cmd_instancess = {
     ["electronic-wechat"] = { "3", "electronic-wechat" },
     ["gvim"] = { "a", "gvim" },
     ["intellij-idea-ultimate-edition"] = { "s", "intellij-idea-ultimate-edition" },
-    ["netease-cloud-music"] = { "9", "netease-cloud-music" }
+    ["netease-cloud-music"] = { "9", "netease-cloud-music" },
+    ["nautilus"] = { "/", "nautilus" }
 }
 client_cmd_names = {
     ["intellij-idea-ultimate-edition"] = { "s", "IntelliJ IDEA" }
