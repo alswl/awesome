@@ -85,7 +85,20 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+-- tag_names = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 tag_names = { "`:t", "1:w", "3:im", "a:v", "s:i", "2:w", "6:im", "8:im", "9:m" }
+
+client_cmd_instancess = {
+    ["xfce4-terminal"] = { "`", "terminal" },
+    ["chromium"] = {"1", "chromium" },
+    ["electronic-wechat"] = { "3", "electronic-wechat" },
+    ["gvim"] = { "a", "gvim" },
+    ["intellij-idea-ultimate-edition"] = { "s", "intellij-idea-ultimate-edition" },
+    ["netease-cloud-music"] = { "9", "netease-cloud-music" }
+}
+client_cmd_names = {
+    ["intellij-idea-ultimate-edition"] = { "s", "IntelliJ IDEA" }
+}
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
