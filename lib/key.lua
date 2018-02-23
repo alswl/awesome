@@ -193,7 +193,7 @@ clientkeys = gears.table.join(
         {description = "centered", group = "client"}),
     awful.key({ modkey,           }, "m",
         function (c)
-            awful.placement.centered(c)
+            awful.placement.centered(c, { honor_workarea=true })
             --awful.placement.centered
         end ,
         {description = "centered", group = "client"}),
