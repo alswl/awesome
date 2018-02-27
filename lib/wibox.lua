@@ -87,6 +87,17 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 -- tag_names = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 tag_names = { "`:t", "1:w", "3:im", "a:v", "s:i", "2:w", "6:im", "8:im", "9:m" }
+tag_layouts = {
+    awful.layout.suit.tile,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating
+}
 
 client_cmd_instancess = {
     ["xfce4-terminal"] = { "`", "terminal" },
@@ -101,12 +112,19 @@ client_cmd_names = {
     ["intellij-idea-ultimate-edition"] = { "s", "IntelliJ IDEA" }
 }
 
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag(tag_names, s, awful.layout.layouts[1])
+    for i, tag_name in ipairs(tag_names) do
+        awful.tag.add(tag_name, {
+            layout = tag_layouts[i],
+            screen = s,
+        })
+    end
+    --awful.tag(tag_names, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
