@@ -33,9 +33,9 @@ globalkeys = gears.table.join(
               {description = "go back", group = "tag"}),
               --
     -- Lock screen
-    awful.key({ modkey, "Ctrl" }, "l",
-        function () awful.util.spawn("xscreensaver-command -lock") end,
-        {description = "lock screen", group = "awesome"}),
+    --awful.key({ modkey, "Ctrl" }, "l",
+        --function () awful.util.spawn("xscreensaver-command -lock") end,
+        --{description = "lock screen", group = "awesome"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -57,10 +57,14 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey }, "l", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey }, "h", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey, "Ctrl" }, "l", function () client.focus:move_to_screen(-1) end,
+              {description = "move to the next screen", group = "screen"}),
+    awful.key({ modkey, "Ctrl" }, "h", function () client.focus:move_to_screen(1) end,
+              {description = "move the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab" ,
@@ -77,21 +81,21 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    --awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+              --{description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-              {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-              {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
-              {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
-              {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
-              {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
-              {description = "decrease the number of columns", group = "layout"}),
+    --awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+              --{description = "increase master width factor", group = "layout"}),
+    --awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+              --{description = "decrease master width factor", group = "layout"}),
+    --awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+              --{description = "increase the number of master clients", group = "layout"}),
+    --awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+              --{description = "decrease the number of master clients", group = "layout"}),
+    --awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
+              --{description = "increase the number of columns", group = "layout"}),
+    --awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
+              --{description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
@@ -228,11 +232,23 @@ for cmd, key_name in pairs(client_cmd_instancess) do
     )
 end
 
-for cmd, key_name in pairs(client_cmd_names) do
+for cmd, shortcut_name in pairs(client_cmd_names) do
     globalkeys = gears.table.join(globalkeys,
-    awful.key({ modkey }, key_name[1], function()
+    awful.key({ modkey }, shortcut_name[1], function()
         local matcher = function (c)
-            return awful.rules.match(c, { name = key_name[2]})
+            return awful.rules.match(c, { name = shortcut_name[2]})
+        end
+        awful.client.run_or_raise(cmd, matcher)
+    end, {description = "", group = "launcher"})
+    )
+end
+
+
+for cmd, shortcut_class in pairs(client_cmd_class) do
+    globalkeys = gears.table.join(globalkeys,
+    awful.key({ modkey }, shortcut_class[1], function()
+        local matcher = function (c)
+            return awful.rules.match(c, { class = shortcut_class[2]})
         end
         awful.client.run_or_raise(cmd, matcher)
     end, {description = "", group = "launcher"})
