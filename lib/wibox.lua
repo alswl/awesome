@@ -86,7 +86,7 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 -- tag_names = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
-tag_names = { "`:t", "1:w", "3:im", "a:v", "s:i", "2:w", "6:im", "8:im", "9:m" }
+tag_names = { "`:t", "1:w", "3:im", "a:v", "s:i", "9:o" }
 tag_layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
