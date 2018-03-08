@@ -203,6 +203,7 @@ clientkeys = gears.table.join(
         {description = "centered", group = "client"}),
     awful.key({ modkey, "Control" }, "m",
         function (c)
+            c.maximized_horizontal = false
             c.width = 1200
         end ,
         {description = "(un)maximize vertically", group = "client"}),
