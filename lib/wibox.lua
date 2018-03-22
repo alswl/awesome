@@ -10,7 +10,7 @@ require("lib/memwidget")
 require("lib/cpuwidget")
 require("lib/netwidget")
 require("lib/volume")
-require("lib/battery")
+local battery = require("lib/battery")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -25,7 +25,7 @@ mymemwidget = memwidget.register()
 mycpuwidget = cpuwidget.register()
 mynetwidget = netwidget.register(netif)
 myvolumnwidget = volume.register()
-mybattery = battery.register()
+mybattery = battery:register()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
