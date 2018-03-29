@@ -40,6 +40,7 @@ awful.rules.rules = {
           "Wpa_gui",
           "pinentry",
           "veromix",
+          "jetbrains-idea",
           "xtightvncviewer"},
 
         name = {

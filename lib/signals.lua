@@ -69,16 +69,16 @@ end)
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
     local focused = client.focus
-    if focused 
-        and focused.class == c.class
-        and focused.instance == "sun-awt-X11-XDialogPeer"
-        and c.instance == "sun-awt-X11-XFramePeer"
+    if focused and (
+        (focused.class == "jetbrains-idea" and c.class == "jetbrains-idea")
+        )
         then
             return
-    end
-    if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-        and awful.client.focus.filter(c) then
-        client.focus = c
+    else
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+            and awful.client.focus.filter(c) then
+            client.focus = c
+        end
     end
 end)
 
