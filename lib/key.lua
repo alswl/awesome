@@ -9,6 +9,7 @@ local wibox = require("wibox")
 
 -- Theme handling library
 local beautiful = require("beautiful")
+local debug = require("gears.debug")
 
 
 local hotkeys_popup = require("awful.hotkeys_popup").widget
@@ -57,9 +58,17 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey }, "l", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey }, "l", function ()
+        if awful.screen.focused().index == screen.count() then
+            return
+        end
+        awful.screen.focus_relative(1)
+    end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey }, "h", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey }, "h", function ()
+        if awful.screen.focused().index == 1 then return end
+        awful.screen.focus_relative(-1)
+    end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey, "Ctrl" }, "l", function () client.focus:move_to_screen(-1) end,
               {description = "move to the next screen", group = "screen"}),
