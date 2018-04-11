@@ -56,6 +56,16 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
+    {
+      -- fixes IntelliJ
+      -- https://wiki.archlinux.org/index.php/Awesome
+      -- https://github.com/awesomeWM/awesome/issues/2204
+      rule = {
+        class = "sun-awt-X11-XFramePeer", 
+        class = "jetbrains-idea",
+        name = "win.*"
+      }, properties = { focusable = false, ontop = true, titlebars_enabled = false, floating = true, placement = awful.placement.restore }
+    },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
